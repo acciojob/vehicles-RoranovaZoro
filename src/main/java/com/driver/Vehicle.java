@@ -6,33 +6,67 @@ public class Vehicle {
     private int currentSpeed;
     private int currentDirection;
 
+
+    //---------------------------------- Constructor ------------------------------
+    public Vehicle() {
+    }
+
     public Vehicle(String name) {
         this.name = name;
         this.currentSpeed = 0;
         this.currentDirection = 0;
     }
 
-    public void steer(int direction) {
-        currentDirection += direction;
-        System.out.println("Steer method called - The direction is changed to: " + currentDirection + " degrees");
+    //------------------------------ setters ----------------------------------
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void move(int speed, int direction) {
-        currentSpeed = speed;
-        currentDirection = direction;
-        System.out.println("Move method called - The speed is changed to: " + currentSpeed + ", and the direction is changed to: " + currentDirection + " degrees");
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
 
-    public void stop() {
-        currentSpeed = 0;
-        System.out.println("Stop method called - The vehicle is stopped");
+    public void setCurrentDirection(int currentDirection) {
+        this.currentDirection = currentDirection;
     }
 
-    protected int getCurrentSpeed() {
+
+
+    //------------------------------- getters ---------------------------------
+
+    public int getCurrentSpeed() {
         return currentSpeed;
     }
 
-    protected int getCurrentDirection() {
+    public String getName() {
+        return name;
+    }
+
+    public int getCurrentDirection() {
         return currentDirection;
     }
+
+
+
+    //--------------------------- other methods-------------------------------
+
+    public void steer(int direction){
+        this.currentDirection += direction;
+        //direction is in degrees, add it to the current direction
+        System.out.println("steer method called - The direction is changed to: " + currentDirection + " degrees");
+    }
+
+
+    public void move(int speed, int direction){
+        //set the values of currentSpeed and currentDirection
+        this.currentSpeed = speed;
+        this.currentDirection = direction;
+        System.out.println("move method called - The speed is changed to: " + currentSpeed + ", and the direction is changed to: " + currentDirection + " degrees");
+    }
+
+    public void stop(){
+        this.currentSpeed = 0;
+        System.out.println("stop method called - The vehicle is stopped");
+    }
+
 }
